@@ -1,14 +1,14 @@
 export const socialLinksData = {
   linkedin: {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/company/multiverse-hotels"
+    url: "#"
   },
   facebook: {
     name: "Facebook",
-    url: "https://www.facebook.com/multiversehotels"
+    url: "#"
   },
   instagram: {
     name: "Instagram",
-    url: "https://www.instagram.com/multiversehotels"
+    url: "#"
   }
 };

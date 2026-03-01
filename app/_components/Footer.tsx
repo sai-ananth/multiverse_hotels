@@ -15,7 +15,7 @@ type FooterProps = {
 
 export function Footer({ contact, id }: FooterProps) {
   return (
-    <footer id={id} className="bg-secondary">
+    <footer id={id} className="bg-primary">
       <div className="container mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Contact Information */}
@@ -39,7 +39,7 @@ export function Footer({ contact, id }: FooterProps) {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-primary-foreground mt-0.5" />
+                <MapPin className="h-5 w-5 text-primary-foreground mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-foreground">{contact.address}</p>
                 </div>

@@ -29,9 +29,9 @@ export function Navigation() {
     }`}>
       <div className="container mx-auto flex max-w-7xl items-center justify-between px-4 py-6 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2 transition-opacity hover:opacity-80">
-          <div className="flex h-10 w-10 items-center justify-center bg-white rounded p-1.5">
+          <div className="flex h-10 w-10 items-center justify-center p-1.5">
             <Image 
-              src="/logo.svg" 
+              src={isScrolled ? "/logo.svg" : "/logo-white.svg"}
               alt="Multiverse Hotels Logo" 
               width={40} 
               height={40}
@@ -60,14 +60,6 @@ export function Navigation() {
             }`}
           >
             About
-          </Button>
-          <Button  variant={'ghost'}
-            onClick={() => scrollToSection('amenities')}
-            className={`text-sm transition-colors ${
-              isScrolled ? 'text-primary-foreground hover:text-primary-foreground/80' : 'text-white hover:text-white/80'
-            }`}
-          >
-            Amenities
           </Button>
           <Button  variant={'ghost'}
             onClick={() => scrollToSection('careers')}

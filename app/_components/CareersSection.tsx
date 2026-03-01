@@ -26,7 +26,7 @@ type CareersSectionProps = {
 
 export function CareersSection({ multiverseLife, partnerWithUs, id }: CareersSectionProps) {
   return (
-    <SectionContainer id={id} className="bg-primary py-16 md:py-24">
+    <SectionContainer id={id} className="bg-secondary py-16 md:py-24">
       <div className="mb-16">
         <h2 className="mb-6 text-3xl font-bold uppercase tracking-tight text-foreground md:text-4xl lg:text-5xl">
           {multiverseLife.title}
