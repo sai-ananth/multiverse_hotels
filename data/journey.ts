@@ -1,6 +1,8 @@
+import { withBasePath } from "@/lib/basePath";
+
 export const journeyData = {
   title: "YOUR JOURNEY BEGINS AT MULTIVERSE",
-  centerImage: "/images/journey-begins.webp",
+  centerImage: withBasePath("/images/journey-begins.webp"),
   features: [
     {
       icon: "Sparkles",

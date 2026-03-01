@@ -1,7 +1,9 @@
+import { withBasePath } from "@/lib/basePath";
+
 export const amenitiesData = {
   title: "THE MULTIVERSE EXPERIENCE",
   subtitle: "Our core philosophy is built on delivering contemporary comfort through a future-ready approach.",
-  image: "/images/amenities-experience.webp",
+  image: withBasePath("/images/amenities-experience.webp"),
   philosophyPoints: [
     {
       title: "True Hospitality:",

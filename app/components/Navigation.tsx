@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,7 +32,7 @@ export function Navigation() {
         <div className="flex items-center gap-2 transition-opacity hover:opacity-80">
           <div className="flex h-10 w-10 items-center justify-center p-1.5">
             <Image 
-              src={isScrolled ? "/logo.svg" : "/logo-white.svg"}
+              src={isScrolled ? withBasePath("/logo.svg") : withBasePath("/logo-white.svg")}
               alt="Multiverse Hotels Logo" 
               width={40} 
               height={40}

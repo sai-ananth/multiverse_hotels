@@ -3,6 +3,7 @@ import { faLinkedin, faFacebook, faInstagram } from "@/lib/icons";
 import { socialLinksData } from "@/data/social-links";
 import { Phone, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 
 type FooterProps = {
   contact: {
@@ -86,7 +87,7 @@ export function Footer({ contact, id }: FooterProps) {
               <div className="mb-2 flex justify-start lg:justify-end">
                 <div className="h-16 w-16 flex items-center justify-center p-3">
                   <Image 
-                    src="/logo.svg" 
+                    src={withBasePath("/logo.svg")} 
                     alt="Multiverse Hotels Logo" 
                     width={64} 
                     height={64}

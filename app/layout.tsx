@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
+import { withBasePath } from "@/lib/basePath";
 
 const lexend = Lexend({
   variable: "--font-lexend",
@@ -33,8 +34,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: '/logo-bg.svg',
-    apple: '/logo-bg.svg',
+    icon: withBasePath('/logo-bg.svg'),
+    apple: withBasePath('/logo-bg.svg'),
   },
   openGraph: {
     type: 'website',
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     siteName: 'Multiverse Hotels',
     images: [
       {
-        url: '/logo-bg.svg',
+        url: withBasePath('/logo-bg.svg'),
         width: 1080,
         height: 1080,
         alt: 'Multiverse Hotels Logo',
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Multiverse Hotels | Luxury Accommodation Beyond the Ordinary',
     description: 'Experience luxury redefined at Multiverse Hotels. Discover unparalleled comfort and elegance with world-class amenities and personalized service.',
-    images: ['/logo-bg.svg'],
+    images: [withBasePath('/logo-bg.svg')],
   },
   robots: {
     index: true,
