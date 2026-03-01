@@ -1,65 +1,106 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import { HeroSection } from "./_components/HeroSection";
+import { AboutSection } from "./_components/AboutSection";
+import { BrandAffiliatesSection } from "./_components/BrandAffiliatesSection";
+import { AmenitiesGrid } from "./_components/AmenitiesGrid";
+import { MissionSection } from "./_components/MissionSection";
+import { JourneySection } from "./_components/JourneySection";
+import { CareersSection } from "./_components/CareersSection";
+import { Footer } from "./_components/Footer";
+import { Sparkles, MapPin, Backpack, UtensilsCrossed, type LucideIcon } from "lucide-react";
+import { heroData } from "@/data/hero";
+import { aboutData } from "@/data/about";
+import { amenitiesData } from "@/data/amenities";
+import { brandAffiliatesData } from "@/data/brand-affiliates";
+import { missionData } from "@/data/mission";
+import { journeyData } from "@/data/journey";
+import { careersData } from "@/data/careers";
+import { footerData } from "@/data/footer";
+
+export const metadata: Metadata = {
+  title: "Multiverse Hotels | Luxury Accommodation Beyond the Ordinary",
+  description: "Experience luxury redefined at Multiverse Hotels. Discover unparalleled comfort and elegance across 50+ countries with world-class amenities and personalized service.",
+};
 
 export default function Home() {
+
+  const iconMap: Record<string, LucideIcon> = {
+    Sparkles,
+    MapPin,
+    Backpack,
+    UtensilsCrossed,
+  };
+
+  const journeyFeatures = journeyData.features.map((feature: { icon: string; title: string; description: string }) => ({
+    ...feature,
+    icon: iconMap[feature.icon] || Sparkles,
+  }));
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main>
+      <HeroSection
+        id="hero"
+        title={heroData.title}
+        backgroundImage={heroData.backgroundImage}
+      />
+
+      <AboutSection
+        id="about"
+        titleLine1={aboutData.titleLine1}
+        titleLine2={aboutData.titleLine2}
+        description={aboutData.description}
+        image={aboutData.image}
+      />
+
+       <AmenitiesGrid
+        id="amenities"
+        title={amenitiesData.title}
+        subtitle={amenitiesData.subtitle}
+        image={amenitiesData.image}
+        philosophyPoints={amenitiesData.philosophyPoints}
+      />
+      
+      <BrandAffiliatesSection
+        id="brands"
+        title={brandAffiliatesData.title}
+        intro={brandAffiliatesData.intro}
+        operatingHotels={brandAffiliatesData.operatingHotels}
+        affiliates={brandAffiliatesData.affiliates}
+      />
+
+      <MissionSection
+        id="mission"
+        title={missionData.title}
+        description={missionData.description}
+      />
+
+      <JourneySection
+        id="journey"
+        title={journeyData.title}
+        features={journeyFeatures}
+        centerImage={journeyData.centerImage}
+      />
+
+      {/* might be needed in the future */}
+      {/* <TestimonialsSection
+        id="testimonials"
+        title={testimonialsData.title}
+        description={testimonialsData.description}
+        image={testimonialsData.image}
+        stats={testimonialsData.stats}
+        testimonials={testimonialsData.testimonials}
+      /> */}
+
+      <CareersSection
+        id="careers"
+        multiverseLife={careersData.multiverseLife}
+        partnerWithUs={careersData.partnerWithUs}
+      />
+
+      <Footer
+        id="footer"
+        contact={footerData.contact}
+      />
+    </main>
   );
 }
